@@ -5,14 +5,14 @@
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
         public int qtdMovimentos { get; protected set; }
-        public Tabuleiro tabuleiro { get; protected set; }
+        public Tabuleiro tab { get; protected set; }
 
-        public Peca(Posicao posicao, Cor cor, int qtdMovimentos)
+        public Peca(Tabuleiro tabuleiro, Cor cor)
         {
-            this.posicao = posicao;
+            this.posicao = null;
             this.cor = cor;
+            this.tab = tabuleiro;
             this.qtdMovimentos = 0;
-            this.tabuleiro = tabuleiro;
         }
     }
 }
