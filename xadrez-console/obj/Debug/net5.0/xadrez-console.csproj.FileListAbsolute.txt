@@ -1,0 +1,16 @@
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.exe
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.deps.json
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.runtimeconfig.json
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.runtimeconfig.dev.json
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.dll
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\ref\xadrez-console.dll
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\bin\Debug\net5.0\xadrez-console.pdb
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.csproj.AssemblyReference.cache
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.GeneratedMSBuildEditorConfig.editorconfig
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.AssemblyInfoInputs.cache
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.AssemblyInfo.cs
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.csproj.CoreCompileInputs.cache
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.dll
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\ref\xadrez-console.dll
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.pdb
+D:\ProgramasLocais\C#CompletoProgramaçãoOrientadaObjetos+Projetos\xadrez-console\xadrez-console\obj\Debug\net5.0\xadrez-console.genruntimeconfig.cache
