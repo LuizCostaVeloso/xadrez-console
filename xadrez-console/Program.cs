@@ -12,17 +12,24 @@ namespace xadrez_console
             //Console.WriteLine("Posição: " + posicao);
             try
             {
-                Tabuleiro tabuleiro = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(0, 0));
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new Posicao(1, 3));
-                tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Preta), new Posicao(0, 2));
+                while (!partida.terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.tabuleiro);
+                    
+                    Console.WriteLine();
+                    Console.Write("Origem: ");
+                    Posicao posicaoOrigem = Tela.lerPosicaoXadrez();
+                    Console.Write("Destino: ");
+                    Posicao posicaoDestino = Tela.lerPosicaoXadrez();
 
-                tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Branca), new Posicao(3,5));
+                    partida.executaMovimento(posicaoOrigem, posicaoDestino);
 
+                }
 
-
-                Tela.imprimirTabuleiro(tabuleiro);
+                Tela.imprimirTabuleiro(partida.tabuleiro);
 
             }
             catch (TabuleiroException e)
