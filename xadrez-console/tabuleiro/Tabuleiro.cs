@@ -23,46 +23,49 @@
             return pecas[posicao.linha, posicao.coluna];
         }
 
-        public bool existePeca(Posicao posicao)
-        {
-            validarPosicao(posicao);
-            return peca(posicao) != null;
-        }
-
-        public void colocarPeca(Peca p, Posicao pos)
-        {
-            if (existePeca(pos))
-                throw new TabuleiroException("Já existe uma peça nesta posição!");
-            pecas[pos.linha, pos.coluna] = p;
-            p.posicao = pos;
-        }
-
         public Peca retirarPeca(Posicao posicao)
         {
             if (peca(posicao) == null)
+            {
                 return null;
+            }
 
             Peca aux = peca(posicao);
             aux.posicao = null;
             pecas[posicao.linha, posicao.coluna] = null;
             return aux;
         }
-
-        public bool posicaoValida(Posicao posicao)
+        //(EXISTE PEÇA) verifica se ja existe uma peça no tabuleiro 
+        public bool existePeca(Posicao posicao) 
         {
-            if (posicao.linha < 0 || posicao.linha >= linhas ||
-                posicao.coluna < 0 || posicao.coluna >= colunas)
+            validarPosicao(posicao);
+            return peca(posicao) != null;
+        }
+
+        //metodo (posicaoValida) recebe a posição e verifica se e valido
+        public bool posicaoValida(Posicao posicao)//ok
+        {
+            if (posicao.linha < 0 || posicao.linha >= linhas || posicao.coluna < 0 || posicao.coluna >= colunas)
             {
                 return false;
             }
             return true;
         }
 
-        public void validarPosicao(Posicao posicao)
+        // metodo que dispara a mensagem se a posição não for valida
+        public void validarPosicao(Posicao posicao)//ok
         {
             if (!posicaoValida(posicao))
                 throw new TabuleiroException("Posição inválida!");
         }
 
+        // COLOCAR PEÇA verifica se existe uma peça na posição e se não ele adiciona
+        public void colocarPeca(Peca peca, Posicao posicao)//ok
+        {
+            if (existePeca(posicao))
+                throw new TabuleiroException("Já existe uma peça nesta posição!");
+            pecas[posicao.linha, posicao.coluna] = peca;
+            peca.posicao = posicao;
+        }
     }
 }

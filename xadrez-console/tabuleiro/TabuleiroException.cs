@@ -3,9 +3,10 @@
 
 namespace tabuleiro
 {
-    class TabuleiroException : Exception
+
+    class TabuleiroException : Exception //classe que que faz excessões personalizadas
     {
-        public TabuleiroException(string message) : base(message)
+        public TabuleiroException(string message) : base(message)//ok
         {
         }
     }

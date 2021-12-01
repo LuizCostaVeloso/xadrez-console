@@ -6,18 +6,19 @@ namespace xadrez
     class PartidaDeXadrez
     {
         public Tabuleiro tabuleiro { get; private set; }
+        public bool terminada { get; private set; }
         private int turno;
         private Cor jogadorAtual;
-        public bool terminada { get; private set; }
         public PartidaDeXadrez()
         {
             tabuleiro = new Tabuleiro(8, 8);
             turno = 1;
-            jogadorAtual = Cor.Branca;
+            jogadorAtual = Cor.Branca;//quem inicia o jogo de xadrez e quem esta com as peças brancas
             terminada = false;
             colocarPecas();
         }
 
+        //raliza a movimentação das peças
         public void executaMovimento(Posicao origem, Posicao destino)
         {
             Peca peca = tabuleiro.retirarPeca(origem);
