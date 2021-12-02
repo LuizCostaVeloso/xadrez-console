@@ -7,8 +7,8 @@ namespace xadrez
     {
         public Tabuleiro tabuleiro { get; private set; }
         public bool terminada { get; private set; }
-        private int turno;
-        private Cor jogadorAtual;
+        public Cor jogadorAtual { get; private set; }//falta o private no set
+        public int turno { get; private set; }
         public PartidaDeXadrez()
         {
             tabuleiro = new Tabuleiro(8, 8);
@@ -27,6 +27,38 @@ namespace xadrez
             tabuleiro.colocarPeca(peca, destino);
         }
 
+        public void realizaJogada(Posicao origem, Posicao destino)
+        {
+            executaMovimento(origem, destino);
+            turno++;
+            mudaJogador();
+        }
+
+        public void validarPosicaoOrigem(Posicao pos)
+        {
+            if (tabuleiro.peca(pos) == null)
+                throw new TabuleiroException("Não existe peça na posição de origem escolhida!");
+
+            if (jogadorAtual != tabuleiro.peca(pos).cor)
+                throw new TabuleiroException("A peça de origem escolhida não é sua!");
+
+            if (!tabuleiro.peca(pos).existeMovimentosPossiveis())
+                throw new TabuleiroException("Não há movimentos possíveis para a peça de origem escolhida!");
+        }
+
+        public void validarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!tabuleiro.peca(origem).podeMoverPara(destino))
+                throw new TabuleiroException("Posição de destino inválida!");
+        }
+        private void mudaJogador()
+        {
+            if (jogadorAtual == Cor.Branca)
+                jogadorAtual = Cor.Preta;
+            else
+                jogadorAtual = Cor.Branca;
+        }
+
         private void colocarPecas()
         {
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Branca), new PosicaoXadrez('c', 1).toPosicao());
@@ -35,8 +67,8 @@ namespace xadrez
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Branca), new PosicaoXadrez('e', 2).toPosicao());
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Branca), new PosicaoXadrez('e', 1).toPosicao());
             tabuleiro.colocarPeca(new Rei(tabuleiro, Cor.Branca), new PosicaoXadrez('d', 1).toPosicao());
-            
-            
+
+
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new PosicaoXadrez('c', 7).toPosicao());
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new PosicaoXadrez('c', 8).toPosicao());
             tabuleiro.colocarPeca(new Torre(tabuleiro, Cor.Preta), new PosicaoXadrez('d', 7).toPosicao());
