@@ -13,10 +13,18 @@ namespace xadrez_console
             imprimirPecasCapturadas(partidaDeXadrez);
             Console.WriteLine();
             Console.WriteLine("Turno: " + partidaDeXadrez.turno);
-            Console.WriteLine("Aguardando jogada: " + partidaDeXadrez.jogadorAtual);
-            if (partidaDeXadrez.xeque)
-                Console.WriteLine();
+            if (!partidaDeXadrez.terminada)
+            {
+                Console.WriteLine("Aguardando jogada: " + partidaDeXadrez.jogadorAtual);
+                if (partidaDeXadrez.xeque)
+                    Console.WriteLine();
                 Console.WriteLine("----- XEQUE! -----");
+            }
+            else
+            {
+                Console.WriteLine("----- XEQUEMATE!!! -----");
+                Console.WriteLine("Vencedor: " + partidaDeXadrez.jogadorAtual);
+            }
         }
 
         public static void imprimirPecasCapturadas(PartidaDeXadrez partida)
@@ -31,7 +39,7 @@ namespace xadrez_console
             imprimirConjunto(partida.pecasCapturadas(Cor.Preta));
             Console.ForegroundColor = aux;
             Console.WriteLine();
-            
+
         }
 
         public static void imprimirConjunto(HashSet<Peca> conjunto)
@@ -39,7 +47,7 @@ namespace xadrez_console
             Console.Write("[");
             foreach (Peca x in conjunto)
             {
-                Console.Write( "(" + x + ")");
+                Console.Write("(" + x + ")");
             }
             Console.Write("]");
         }
@@ -57,7 +65,7 @@ namespace xadrez_console
             }
             Console.WriteLine("  a b c d e f g h");
         }
-        
+
         //sobre carga do metodo imprimir que imprime o tabuleiro com as posicoes possiveis
         //de movimentações das peças
         public static void imprimirTabuleiro(Tabuleiro tabuleiro, bool[,] posicoesPossiveis)
