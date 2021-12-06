@@ -1,17 +1,16 @@
 ﻿using tabuleiro;
 
-
 namespace xadrez
 {
-    class Torre : Peca
+    class Bispo: Peca
     {
-        public Torre(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
+        public Bispo(Tabuleiro tabuleiro, Cor cor) : base(tabuleiro, cor)
         {
         }
 
         public override string ToString()
         {
-            return "T";
+            return "B";
         }
 
         //testa se casa ta livre ou se há uma peça adversaria
@@ -27,8 +26,8 @@ namespace xadrez
 
             Posicao pos = new Posicao(0, 0);
 
-            //movimento para cima
-            pos.definirValores(posicao.linha - 1, posicao.coluna);
+            //movimento para cima direita
+            pos.definirValores(posicao.linha - 1, posicao.coluna -1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 matriz[pos.linha, pos.coluna] = true;
@@ -36,11 +35,11 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha - 1;
+                pos.definirValores(pos.linha -1,pos.coluna - 1);
             }
 
-            //movimento para baixo
-            pos.definirValores(posicao.linha + 1, posicao.coluna);
+            //movimento para baixo direita
+            pos.definirValores(posicao.linha - 1, posicao.coluna +1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 matriz[pos.linha, pos.coluna] = true;
@@ -48,11 +47,11 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.linha = pos.linha + 1;
+                pos.definirValores(pos.linha - 1, pos.coluna + 1);
             }
 
-            //movimento para direita
-            pos.definirValores(posicao.linha, posicao.coluna + 1);
+            //movimento para esquerda abaixo
+            pos.definirValores(posicao.linha +1, posicao.coluna + 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 matriz[pos.linha, pos.coluna] = true;
@@ -60,11 +59,11 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna + 1;
+                pos.definirValores(pos.linha + 1, pos.coluna + 1);
             }
 
             //movimento para esquerda
-            pos.definirValores(posicao.linha, posicao.coluna - 1);
+            pos.definirValores(posicao.linha + 1, posicao.coluna - 1);
             while (tabuleiro.posicaoValida(pos) && podeMover(pos))
             {
                 matriz[pos.linha, pos.coluna] = true;
@@ -72,7 +71,7 @@ namespace xadrez
                 {
                     break;
                 }
-                pos.coluna = pos.coluna - 1;
+                pos.definirValores(pos.linha + 1, pos.coluna - 1);
             }
 
             return matriz;
