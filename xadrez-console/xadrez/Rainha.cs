@@ -3,10 +3,10 @@
 namespace xadrez
 {
 
-    class Dama : Peca
+    class Rainha : Peca
     {
 
-        public Dama(Tabuleiro tab, Cor cor) : base(tab, cor)
+        public Rainha(Tabuleiro tab, Cor cor) : base(tab, cor)
         {
         }
 
