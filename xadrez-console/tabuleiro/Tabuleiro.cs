@@ -2,6 +2,7 @@
 {
     class Tabuleiro
     {
+
         public int linhas { get; set; }
         public int colunas { get; set; }
         private Peca[,] pecas;
@@ -18,54 +19,54 @@
             return pecas[linha, coluna];
         }
 
-        public Peca peca(Posicao posicao)
+        public Peca peca(Posicao pos)
         {
-            return pecas[posicao.linha, posicao.coluna];
+            return pecas[pos.linha, pos.coluna];
         }
 
-        public Peca retirarPeca(Posicao posicao)
+        public bool existePeca(Posicao pos)
         {
-            if (peca(posicao) == null)
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
+
+        public void colocarPeca(Peca p, Posicao pos)
+        {
+            if (existePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
+            }
+            pecas[pos.linha, pos.coluna] = p;
+            p.posicao = pos;
+        }
+
+        public Peca retirarPeca(Posicao pos)
+        {
+            if (peca(pos) == null)
             {
                 return null;
             }
-
-            Peca aux = peca(posicao);
+            Peca aux = peca(pos);
             aux.posicao = null;
-            pecas[posicao.linha, posicao.coluna] = null;
+            pecas[pos.linha, pos.coluna] = null;
             return aux;
         }
-        //(EXISTE PEÇA) verifica se ja existe uma peça no tabuleiro 
-        public bool existePeca(Posicao posicao) 
-        {
-            validarPosicao(posicao);
-            return peca(posicao) != null;
-        }
 
-        //metodo (posicaoValida) recebe a posição e verifica se e valido
-        public bool posicaoValida(Posicao posicao)//ok
+        public bool posicaoValida(Posicao pos)
         {
-            if (posicao.linha < 0 || posicao.linha >= linhas || posicao.coluna < 0 || posicao.coluna >= colunas)
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna < 0 || pos.coluna >= colunas)
             {
                 return false;
             }
             return true;
         }
 
-        // metodo que dispara a mensagem se a posição não for valida
-        public void validarPosicao(Posicao posicao)//ok
+        public void validarPosicao(Posicao pos)
         {
-            if (!posicaoValida(posicao))
+            if (!posicaoValida(pos))
+            {
                 throw new TabuleiroException("Posição inválida!");
-        }
-
-        // COLOCAR PEÇA verifica se existe uma peça na posição e se não ele adiciona
-        public void colocarPeca(Peca peca, Posicao posicao)//ok
-        {
-            if (existePeca(posicao))
-                throw new TabuleiroException("Já existe uma peça nesta posição!");
-            pecas[posicao.linha, posicao.coluna] = peca;
-            peca.posicao = posicao;
+            }
         }
     }
 }
